@@ -1,12 +1,12 @@
 
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 import Folder from './component/Folder';
 import explorer from './data/folderData';
 
 function App() {
 const [explorerData,setExplorerData]= useState(explorer);
-console.log(explorerData); 
+// console.log(explorerData); 
 
 return (
     <div className="App">
