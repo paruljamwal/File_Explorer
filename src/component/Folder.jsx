@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./Folder.css";
-const Folder = ({explorer}) => {
+const Folder = ({explorer,handleInsertNode}) => {
     console.log(explorer);
     const [expand,setExpand]=useState(false);
     const [showInput,setShowInput] = useState({
@@ -22,7 +22,8 @@ const Folder = ({explorer}) => {
 
     const onAddFolder=(e)=>{
       if(e.keyCode===13 && e.target.value ){
-        setShowInput({...showInput,visible:false})
+        handleInsertNode(explorer.id,e.target.value,showInput.isFolder)
+        setShowInput({...showInput,visible:false});
       }
     }
 
@@ -56,7 +57,7 @@ const Folder = ({explorer}) => {
 
             {/* items  */}
               {explorer.items.map((e)=>(
-                <Folder explorer={e} key={e.id} />
+                <Folder explorer={e} handleInsertNode={handleInsertNode} key={e.id} />
               ))}
             </div>
         </div>
